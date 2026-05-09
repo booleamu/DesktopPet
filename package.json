@@ -22,7 +22,10 @@
     "macos",
     "linux"
   ],
-  "author": "Joey",
+  "author": {
+    "name": "Joey",
+    "email": "booleam@live.cn"
+  },
   "license": "MIT",
   "devDependencies": {
     "electron": "^35.0.0",
