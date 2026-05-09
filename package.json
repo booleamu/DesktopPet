@@ -6,7 +6,10 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
-    "build": "electron-builder --win"
+    "build": "electron-builder --win --mac --linux",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
   },
   "keywords": [
     "desktop-pet",
@@ -15,7 +18,9 @@
     "kawaii",
     "cat",
     "widget",
-    "windows"
+    "windows",
+    "macos",
+    "linux"
   ],
   "author": "Joey",
   "license": "MIT",
@@ -25,7 +30,7 @@
   },
   "build": {
     "appId": "com.joey.desktop-pet",
-    "productName": "桌面宠物",
+    "productName": "DesktopPet",
     "directories": {
       "output": "dist"
     },
@@ -38,11 +43,49 @@
       "assets/**/*"
     ],
     "win": {
-      "target": "portable",
-      "icon": "assets/tray-icon.png"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/tray-icon.png",
+      "artifactName": "DesktopPet-${version}-Windows-${arch}.${ext}"
     },
-    "portable": {
-      "artifactName": "桌面宠物.exe"
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "icon": "assets/tray-icon.png",
+      "artifactName": "DesktopPet-${version}-macOS-${arch}.${ext}",
+      "category": "public.app-category.entertainment"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/tray-icon.png",
+      "artifactName": "DesktopPet-${version}-Linux-${arch}.${ext}",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "artifactName": "DesktopPet-${version}-Windows-Setup.${ext}"
     }
   }
 }
