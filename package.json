@@ -1,0 +1,48 @@
+{
+  "name": "desktop-pet",
+  "version": "1.0.0",
+  "description": "🐱 一个可爱的桌面宠物小助手 | A cute desktop pet built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --win"
+  },
+  "keywords": [
+    "desktop-pet",
+    "electron",
+    "mascot",
+    "kawaii",
+    "cat",
+    "widget",
+    "windows"
+  ],
+  "author": "Joey",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.joey.desktop-pet",
+    "productName": "桌面宠物",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "style.css",
+      "pet.js",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "assets/tray-icon.png"
+    },
+    "portable": {
+      "artifactName": "桌面宠物.exe"
+    }
+  }
+}

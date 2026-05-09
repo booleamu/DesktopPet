@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="pet-container">
+    <!-- 外层：CSS 动画 -->
+    <div id="pet" class="pet idle">
+      <!-- 内层：翻转朝向 -->
+      <div id="pet-inner" class="pet-inner">
+        <canvas id="pet-canvas"></canvas>
+        <div id="overlay" class="overlay"></div>
+      </div>
+    </div>
+    <div id="speech-bubble" class="speech-bubble hidden">
+      <span id="bubble-text"></span>
+    </div>
+    <div id="context-menu" class="context-menu hidden">
+      <div class="menu-item" data-action="pet">🤚 摸摸头</div>
+      <div class="menu-item" data-action="feed">🐟 喂食</div>
+      <div class="menu-item" data-action="play">🧶 玩耍</div>
+      <div class="menu-item" data-action="sleep">💤 睡觉</div>
+      <div class="menu-separator"></div>
+      <div class="menu-item" data-action="dance">💃 跳舞</div>
+    </div>
+  </div>
+  <script src="pet.js"></script>
+</body>
+</html>
